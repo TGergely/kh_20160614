@@ -1,0 +1,34 @@
+RewriteEngine On
+
+#RewriteCond %{HTTPS} !=on
+#RewriteCond %{HTTP_HOST} ^www.(.+)$ [NC]
+#RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+RewriteCond %{THE_REQUEST} index\.php
+RewriteRule ^index\.php/?$ http://kassaiholmi.sk/ [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !favicon\.ico  [NC] 
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^fooldal(/?)$ index.php [L]
+RewriteRule ^kuldetesunk(/?)$ kuldetesunk.php [L]
+RewriteRule ^fotogaleria(/?)$ fotogaleria.php [L]
+RewriteRule ^archivum(/?)$ archivum.php [L]
+RewriteRule ^kapcsolat(/?)$ kapcsolat.php [L]
+RewriteRule ^admin(/?)$ admin/admin_login.php [L]
+
+RewriteRule ^kassai-magyar-szervezetek-listaja(/?)$ magyar_szervezetek.php [L]
+RewriteRule ^aktualis-(.+)?$ aktualis.php?read=$1 [L,QSA]
+
+RewriteRule ^muszaki-egyetem-kassa(/?)$ felsooktatas_tuke.php [L]
+RewriteRule ^pavoljozefsafarik-egyetem-kassa(/?)$ felsooktatas_upjs.php [L]
+RewriteRule ^allatorvosi-egyetem-kassa(/?)$ felsooktatas_allatorvosi.php [L]
+RewriteRule ^pozsonyi-kozgaz-egyetem-kassa(/?)$ felsooktatas_pozsonyi.php [L]
+RewriteRule ^rozsahegyi-egyetem-kassa(/?)$ felsooktatas_rozsahegyi.php [L]
+RewriteRule ^eperjesi-egyetem(/?)$ felsooktatas_eperjesi.php [L]
+RewriteRule ^biztonsagmenedzsment-foiskola-kassa(/?)$ felsooktatas_biztonsagm.php [L]
+
+RewriteRule ^kassa-tortenete(/?)$ kassa_tortenete.php [L]
+RewriteRule ^kassa-latnivaloi(/?)$ kassa_latnivalok.php [L]
+RewriteRule ^kassa-hires-szulottei(/?)$ kassa_hires.php [L]
+RewriteRule ^kassa-terkepe(/?)$ kassa_terkep.php [L]
